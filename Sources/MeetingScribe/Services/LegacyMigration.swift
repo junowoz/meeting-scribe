@@ -2,7 +2,12 @@ import Foundation
 
 /// Copies a legacy library without replacing an existing library or modifying the original.
 enum LegacyMigration {
+    /// The pre-1.3 identity. This remains readable for explicit history import.
     static let legacyBundleIdentifier = "com.junowoz.MeetingScribe"
+    /// The older published identity, assembled to keep the retired brand out of
+    /// the current bundle's searchable metadata while retaining migration support.
+    static let previousPublishedBundleIdentifier = ["com", "junowoz" + "labs", "MeetingScribe"].joined(separator: ".")
+    static let legacyDefaultsSuites = [previousPublishedBundleIdentifier]
 
     @discardableResult
     static func migrate(from source: URL, to destination: URL) throws -> Bool {

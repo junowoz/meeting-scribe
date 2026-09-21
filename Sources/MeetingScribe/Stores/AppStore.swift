@@ -32,8 +32,10 @@ final class AppStore: ObservableObject {
         apiKey = apiKeyOverride ?? KeychainStore.loadAPIKey()
         if storageDirectory == nil,
            UserDefaults.standard.data(forKey: "transcription-settings") == nil,
-           let legacy = UserDefaults(suiteName: LegacyMigration.legacyBundleIdentifier)?.data(forKey: "transcription-settings"),
-           (try? JSONDecoder().decode(TranscriptionSettings.self, from: legacy)) != nil {
+           let legacy = LegacyMigration.legacyDefaultsSuites
+               .lazy
+               .compactMap({ UserDefaults(suiteName: $0)?.data(forKey: "transcription-settings") })
+               .first(where: { (try? JSONDecoder().decode(TranscriptionSettings.self, from: $0)) != nil }) {
             UserDefaults.standard.set(legacy, forKey: "transcription-settings")
         }
         if let data = UserDefaults.standard.data(forKey: "transcription-settings"),

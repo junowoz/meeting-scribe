@@ -2,6 +2,13 @@ import Foundation
 import Testing
 @testable import MeetingScribe
 
+@Test func releaseIdentityKeepsCurrentDomainAndRetiredDomainsReadable() {
+    #expect(LegacyMigration.legacyBundleIdentifier == "com.junowoz.MeetingScribe")
+    #expect(LegacyMigration.previousPublishedBundleIdentifier == ["com", "junowoz" + "labs", "MeetingScribe"].joined(separator: "."))
+    #expect(LegacyMigration.previousPublishedBundleIdentifier != LegacyMigration.legacyBundleIdentifier)
+    #expect(LegacyMigration.legacyDefaultsSuites.contains(LegacyMigration.previousPublishedBundleIdentifier))
+}
+
 @Test func migratesLegacyLibraryAndRebasesMediaPaths() throws {
     let root = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
     defer { try? FileManager.default.removeItem(at: root) }

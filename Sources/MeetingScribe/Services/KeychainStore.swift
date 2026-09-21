@@ -2,7 +2,7 @@ import Foundation
 import Security
 
 enum KeychainStore {
-    private static let service = "com.junowozlabs.MeetingScribe"
+    private static let service = "com.junowoz.MeetingScribe"
     private static let migrationKey = "legacy-keychain-migration-complete"
     private static let account = "assemblyai-api-key"
 
@@ -33,10 +33,14 @@ enum KeychainStore {
     static func loadAPIKey() -> String {
         let current = load(service: service)
         guard current.isEmpty, !UserDefaults.standard.bool(forKey: migrationKey) else { return current }
-        let legacy = load(service: LegacyMigration.legacyBundleIdentifier)
-        guard !legacy.isEmpty else { return "" }
-        do { try saveAPIKey(legacy); return legacy }
-        catch { return "" }
+        for legacyService in [LegacyMigration.legacyBundleIdentifier, LegacyMigration.previousPublishedBundleIdentifier]
+        where legacyService != service {
+            let legacy = load(service: legacyService)
+            guard !legacy.isEmpty else { continue }
+            do { try saveAPIKey(legacy); return legacy }
+            catch { return "" }
+        }
+        return ""
     }
 
     private static func load(service: String) -> String {

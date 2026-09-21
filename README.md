@@ -2,9 +2,9 @@
 
 <img src="Resources/AppIcon-1024.png" width="96" alt="Logo do Meeting Scribe">
 
-Transcreva áudios, vídeos e reuniões em um app nativo para macOS. Criado por [@junowozlabs](https://github.com/junowozlabs).
+Transcreva áudios, vídeos e reuniões em um app nativo para macOS. Criado por [@junowoz](https://github.com/junowoz).
 
-[Baixar para Mac](https://github.com/junowozlabs/meeting-scribe/releases/latest/download/MeetingScribe.dmg) · [Versões](https://github.com/junowozlabs/meeting-scribe/releases)
+[Baixar para Mac](https://github.com/junowoz/meeting-scribe/releases/latest/download/MeetingScribe.dmg) · [Versões](https://github.com/junowoz/meeting-scribe/releases)
 
 ![Ícone do Meeting Scribe](Resources/AppIcon-1024.png)
 
@@ -76,9 +76,11 @@ VERSION=1.2.1 BUILD_NUMBER=1101 ./script/release.sh
 
 O resultado fica em `dist/release/`: DMG, appcast assinado e SHA256SUMS. O número de build deve aumentar a cada versão. A publicação recusa uma chave ausente; não há fallback para atualizações sem assinatura.
 
-## Migração para a Juno Woz Labs
+## Migração para Juno Woz
 
-A versão 1.2.0 usa `com.junowozlabs.MeetingScribe`. Se você usava a versão anterior, reinstale pelo DMG uma vez. As atualizações seguintes usam a nova identidade.
+A versão 1.3.0 usa `com.junowoz.MeetingScribe`. A chave da AssemblyAI é lida primeiro da identidade atual e, quando disponível, migrada de identidades anteriores de forma idempotente.
+
+O macOS mantém o histórico da versão 1.2.0 no container anterior. Instale a versão 1.3.0 manualmente pelo DMG e importe esse histórico antes de remover a instalação anterior. O processo de importação copia os arquivos, atualiza os caminhos e preserva a biblioteca original.
 
 A API key é migrada quando o Keychain permite o acesso. Caso contrário, cole a chave novamente em Ajustes → Conta. As permissões de gravação podem ser solicitadas novamente.
 

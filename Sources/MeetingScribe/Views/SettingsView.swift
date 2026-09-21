@@ -156,8 +156,8 @@ struct SettingsView: View {
     private var about: some View {
         Group {
             section("Meeting Scribe") {
-                Text("Criado por @junowozlabs").font(.headline)
-                Link("Conhecer o projeto no GitHub", destination: URL(string: "https://github.com/junowozlabs/meeting-scribe")!)
+                Text("Criado por @junowoz").font(.headline)
+                Link("Conhecer o projeto no GitHub", destination: URL(string: "https://github.com/junowoz/meeting-scribe")!)
                 description("Versão \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "Desenvolvimento")")
             }
             section("Atualizações") {

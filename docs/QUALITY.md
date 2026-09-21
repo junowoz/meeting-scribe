@@ -23,7 +23,7 @@ A revisão aplicou acessibilidade, organização, texto, tipografia, cores e aca
 | Preferências | Formulários cortavam textos longos | `SettingsView.swift`: rótulos acima dos campos, largura limitada e rolagem |
 | Janela | Histórico deslocava os painéis acima da barra | `ContentView.swift`: divisão nativa com área limitada ao tamanho da janela |
 | Migração | Biblioteca vinculada à identidade anterior | `LegacyMigration.swift`: cópia preservada e caminhos atualizados para a nova identidade |
-| Identidade | Ícone anterior e autoria ausente | `Resources`, `SettingsView.swift`, `Info.plist`: marca minimalista e crédito @junowozlabs |
+| Identidade | Ícone anterior e autoria ausente | `Resources`, `SettingsView.swift`, `Info.plist`: marca minimalista e crédito @junowoz |
 | Movimento | Sem indicação ao arrastar | `ContentView.swift`: transição de opacidade de 150 ms, desativada com redução de movimento |
 | Gravação | Sair podia interromper sem aviso | `MeetingScribeApp.swift`: confirmação antes de sair com trabalho ativo |
 | Distribuição | Build local sem entrega automática | `UpdateService.swift`, scripts e workflows: DMG universal, Sparkle e assinatura Ed25519 |
@@ -40,9 +40,9 @@ As quatro abas de ajustes foram inspecionadas após a correção. A importação
 
 A janela também foi inspecionada com 800 pontos de largura. Os botões se reorganizam em linhas e a leitura permanece dentro do painel. A logo fornecida foi preservada, com remoção local do fundo externo e transparência conferida no PNG.
 
-O [CI](https://github.com/junowozlabs/meeting-scribe/actions/runs/34415912903) e a [publicação 1.2.0](https://github.com/junowozlabs/meeting-scribe/actions/runs/34415915635) passaram no commit `03a4a1d`. O workflow publicou o DMG universal, o catálogo assinado e a soma SHA256.
+O [CI](https://github.com/junowoz/meeting-scribe/actions/runs/34415912903) e a [publicação 1.2.0](https://github.com/junowoz/meeting-scribe/actions/runs/34415915635) passaram no commit `03a4a1d`. O workflow publicou o DMG universal, o catálogo assinado e a soma SHA256.
 
-O atualizador levou a instalação local 1.2.0 (1000) à versão pública 1.2.0 (1001), com reinício e preservação das duas transcrições. Os logs confirmaram as assinaturas Ed25519 do catálogo e do arquivo. O ícone instalado corresponde ao arquivo do repositório. O catálogo público respondeu sem autenticação.
+O atualizador levou a instalação local 1.2.0 (1000) à versão pública 1.2.0 (1001), com reinício e preservação das duas transcrições. A identidade 1.3.0 exige instalação manual pelo DMG. A migração de credenciais não substitui defaults atuais, e a importação do histórico copia os arquivos sem remover a biblioteca anterior. Os logs confirmaram as assinaturas Ed25519 do catálogo e do arquivo. O ícone instalado corresponde ao arquivo do repositório. O catálogo público respondeu sem autenticação.
 
 Não verificado: sessão completa com VoiceOver, medições de contraste em todas as aparências, gravação real de reunião, transcrição paga real de cada codec e instalação em outro Mac. Capturas com conteúdo pessoal não foram incluídas no repositório.
 

@@ -1,4 +1,4 @@
-Meeting Scribe — criado por @junowozlabs
+Meeting Scribe — criado por @junowoz
 
 1. Arraste MeetingScribe para Applications (Aplicativos).
 2. Abra o app na pasta Aplicativos.
@@ -7,7 +7,7 @@ Meeting Scribe — criado por @junowozlabs
 Este app é distribuído sem assinatura Developer ID e sem notarização da Apple.
 Se o macOS bloquear a abertura, tente abrir o app uma vez.
 Depois, abra Ajustes do Sistema > Privacidade e Segurança > Abrir Mesmo Assim.
-Confirme a abertura apenas se você baixou de github.com/junowozlabs/meeting-scribe.
+Confirme a abertura apenas se você baixou de github.com/junowoz/meeting-scribe.
 Não desative o Gatekeeper do computador.
 Computadores gerenciados podem impedir essa autorização.
 
@@ -19,9 +19,9 @@ Também use Meeting Scribe > Buscar atualizações.
 As atualizações têm assinatura Ed25519 própria, independente de uma conta Apple.
 Instale o app em Aplicativos antes de atualizar. Não execute direto do DMG.
 
-Migração da versão 1.1.0
+Migração da versão 1.2.0
 
-A versão 1.2.0 usa a identidade com.junowozlabs.MeetingScribe.
+A versão 1.3.0 usa a identidade com.junowoz.MeetingScribe.
 Instale esta versão manualmente pelo DMG e informe novamente sua chave da API.
 Importe o histórico antigo pelo app antes de remover a instalação anterior.
-A partir da versão 1.2.0, as próximas versões usam a atualização integrada.
+A partir da versão 1.3.0, as próximas versões usam a atualização integrada.

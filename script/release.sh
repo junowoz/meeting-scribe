@@ -19,10 +19,10 @@ rm -f "$DMG" dist/release/appcast.xml
 hdiutil create -volname 'Meeting Scribe' -srcfolder "$STAGING" -ov -format UDZO "$DMG"
 hdiutil verify "$DMG"
 GENERATE=.build/artifacts/sparkle/Sparkle/bin/generate_appcast
-URL="https://github.com/junowozlabs/meeting-scribe/releases/download/v$VERSION/"
+URL="https://github.com/junowoz/meeting-scribe/releases/download/v$VERSION/"
 if [[ -n "${SPARKLE_PRIVATE_KEY:-}" ]]; then
   printf '%s' "$SPARKLE_PRIVATE_KEY" | "$GENERATE" --ed-key-file - --minimum-update-version 1000 --download-url-prefix "$URL" dist/release
 else
-  "$GENERATE" --account com.junowozlabs.MeetingScribe --minimum-update-version 1000 --download-url-prefix "$URL" dist/release
+  "$GENERATE" --account com.junowoz.MeetingScribe --minimum-update-version 1000 --download-url-prefix "$URL" dist/release
 fi
 (cd dist/release && shasum -a 256 MeetingScribe.dmg > SHA256SUMS)
