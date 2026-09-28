@@ -57,7 +57,7 @@ O script compila, monta o bundle, assina localmente e abre o app. `--debug`, `--
 
 ## Publicar
 
-O workflow Test and build executa os testes e monta o app em pushes para `main`/`master` e em pull requests. O workflow Publish DMG and updates testa, gera o DMG universal e publica os arquivos no GitHub Releases.
+O workflow Test and build executa os testes e monta o app em pushes para `main` e em pull requests. O workflow Publish DMG and updates testa, gera o DMG universal e publica os arquivos no GitHub Releases.
 
 Configure o secret `SPARKLE_PRIVATE_KEY` no repositório com a chave correspondente a `SUPublicEDKey` em `Support/Info.plist`. Mantenha essa chave privada fora do Git e preserve uma cópia segura. Não gere outra chave para cada versão.
 
